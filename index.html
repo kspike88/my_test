@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тест Люшера</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="main-container">
+        <h1>Тест Люшера</h1>
+        <p>Выберите цвет, который наиболее приятен Вам. Повторите это для всех восьми цветов. После 15 секунд выберите их снова.</p>
+        <button id="start-test-btn">Начать тест</button>
+    </div>
+
+    <div id="test-container" style="display: none;">
+        <div id="step1" class="step">
+            <h2>Выберите цвет по предпочтению:</h2>
+            <div class="color-container">
+                <div class="color" data-value="blue" style="background-color: #004983;"></div>
+                <div class="color" data-value="green" style="background-color: #1D9772;"></div>
+                <div class="color" data-value="red" style="background-color: #F12F23;"></div>
+                <div class="color" data-value="yellow" style="background-color: #F2DD00;"></div>
+                <div class="color" data-value="purple" style="background-color: #D42481;"></div>
+                <div class="color" data-value="brown" style="background-color: #C55223;"></div>
+                <div class="color" data-value="black" style="background-color: #231F20;"></div>
+                <div class="color" data-value="gray" style="background-color: #98938D;"></div>
+            </div>
+            <div id="selected-colors">
+                <h3>Выбранные цвета:</h3>
+                <ul id="color-list"></ul>
+            </div>
+        </div>
+
+        <div id="timer-container" style="display: none;">
+            <h2>Подождите 15 секунд... </h2>
+            <p id="timer">00:15</p>
+        </div>
+        </div>
+
+        <div id="step2" class="step" style="display: none;">
+            <h2>Повторите выбор цветов:</h2>
+            <div class="color-container">
+                <div class="color" data-value="yellow" style="background-color: #F2DD00;"></div>
+               <div class="color" data-value="blue" style="background-color: #004983;"></div>
+                <div class="color" data-value="brown" style="background-color: #C55223;"></div>
+                <div class="color" data-value="black" style="background-color: #231F20;"></div>
+                <div class="color" data-value="green" style="background-color: #1D9772;"></div>
+                <div class="color" data-value="purple" style="background-color: #D42481;"></div>
+                <div class="color" data-value="gray" style="background-color: #98938D;"></div>
+                <div class="color" data-value="red" style="background-color: #F12F23;"></div>
+            </div>
+            <button id="submit-test-btn" style="display: none;">Завершить тест</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

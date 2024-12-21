@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f9;
+    color: #333;
+}
+
+#main-container, #test-container, #timer-container {
+    margin: 20px;
+    padding: 20px;
+    max-width: 800px;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.color-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.color {
+    width: 65px;
+    height: 100px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.color:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.selected {
+    border: 3px solid transparent; /* Прозрачная основа для рамки */
+    border-image: linear-gradient(45deg, red, yellow, green, blue, purple) 1; /* Градиент для рамки */
+    border-radius: 5px; /* Радиус для сглаживания углов */
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.5); /* Дополнительное подсвечивание */
+}
+
+#timer {
+    font-size: 2rem;
+    font-weight: bold;
+}
