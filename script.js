@@ -14,6 +14,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let selectedColorsStep2 = [];
     let timer;
 
+    // Извлечение Telegram ID из URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const telegramID = urlParams.get('telegramID');
+
     const formActionUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe8F0S6Wh3rMFPSktJOKoeUhwbibCJmw5u8LEhridC_fIFsmg/formResponse";
 
     startTestBtn.addEventListener("click", () => {
@@ -106,6 +110,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function sendDataToGoogleForms(step1, step2) {
         const formData = new FormData();
+        formData.append("entry.1260495986", telegramID); // Поле для Telegram ID
         formData.append("entry.36312125", step1.join(", ")); // Поле для первого шага
         formData.append("entry.1567429347", step2.join(", ")); // Поле для второго шага
 
