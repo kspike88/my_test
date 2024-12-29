@@ -16,7 +16,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Извлечение Telegram ID из URL
     const urlParams = new URLSearchParams(window.location.search);
-    const telegramID = urlParams.get('id'); // Изменим параметр на 'id'
+    const telegramID = urlParams.get("id");
+
+    if (!telegramID) {
+        console.error("Telegram ID is missing in the URL!");
+        alert("Ошибка: Telegram ID не найден. Пожалуйста, перейдите в тест через бота.");
+        return;
+    }
+
+    console.log("Extracted Telegram ID:", telegramID);
 
     const formActionUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe8F0S6Wh3rMFPSktJOKoeUhwbibCJmw5u8LEhridC_fIFsmg/formResponse";
 
@@ -65,8 +73,6 @@ document.addEventListener("DOMContentLoaded", () => {
     submitTestBtn.addEventListener("click", () => {
         if (selectedColorsStep1.length === 8 && selectedColorsStep2.length === 8) {
             sendDataToGoogleForms(selectedColorsStep1, selectedColorsStep2);
-            alert("Тест завершен!");
-            resetTest();
         } else {
             alert("Выберите по 8 цветов на каждом шаге!");
         }
@@ -114,6 +120,12 @@ document.addEventListener("DOMContentLoaded", () => {
         formData.append("entry.36312125", step1.join(", ")); // Поле для первого шага
         formData.append("entry.1567429347", step2.join(", ")); // Поле для второго шага
 
+        console.log("Sending data to Google Forms:", {
+            telegramID,
+            step1: step1.join(", "),
+            step2: step2.join(", "),
+        });
+
         try {
             await fetch(formActionUrl, {
                 method: "POST",
@@ -121,6 +133,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 mode: "no-cors",
             });
             alert("Данные успешно отправлены!");
+            resetTest();
         } catch (error) {
             console.error("Ошибка при отправке данных:", error);
             alert("Ошибка при отправке данных. Попробуйте снова.");
