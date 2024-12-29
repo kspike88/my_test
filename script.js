@@ -16,7 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Извлечение Telegram ID из URL
     const urlParams = new URLSearchParams(window.location.search);
-    const telegramID = urlParams.get('telegramID');
+    const telegramID = urlParams.get('id'); // Изменим параметр на 'id'
 
     const formActionUrl = "https://docs.google.com/forms/d/e/1FAIpQLSe8F0S6Wh3rMFPSktJOKoeUhwbibCJmw5u8LEhridC_fIFsmg/formResponse";
 
